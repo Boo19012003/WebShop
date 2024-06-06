@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import HomePage from './pages/admin/users/homePage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<h1> CELERY-LG</h1>);
+root.render(<HomePage />);
