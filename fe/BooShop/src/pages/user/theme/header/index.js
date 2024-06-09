@@ -9,41 +9,58 @@ import { IoIosMail } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
-import LOGO from "assest/Logo.svg"
+import LOGO from "assest/Logo_web.png"
 import { ROUTERS } from 'utils/router';
 import React, { useState } from 'react';
+import banner1 from "assest/banner.png";
+import banner2 from "assest/banner2.png";
+import banner3 from "assest/banner3.png";
+import banner2_1 from "assest/banner2_1.png";
+import banner2_2 from "assest/banner2_2.png";
+import banner2_3 from "assest/banner2_3.jpg";
+import overlayImage from "assest/img.png";
 
 const Header = () => {
-
+  const [currentBanner, setCurrentBanner] = useState(banner1);
   const [menus] = useState([
     {
       name: "Trang chủ",
       path: ROUTERS.USER.HOME,
+      banner: banner1,
     },
     {
       name: "Sản phẩm",
       path: ROUTERS.USER.PRODUCTS,
+      banner: banner2,
       isShowSubMenu: false,
       Child: [
         {
           name: "Rau củ",
-          path: ""
+          path: "",
+          banner: banner2_1,
         },
         {
           name: "Trái cây",
-          path: ""
+          path: "",
+          banner: banner2_2,
         },
         {
           name: "Hoa",
-          path: ""
+          path: "",
+          banner: banner2_3,
         }
       ],
     },
     {
       name: "Giới thiệu",
       path: ROUTERS.USER.INFO,
+      banner: banner3,
     }
   ]);
+
+  const handleMouseEnter = (menu) => {
+    setCurrentBanner(menu.banner);
+  };
 
   return (
     <>
@@ -54,7 +71,7 @@ const Header = () => {
             <ul>
               <li><IoIosMail /></li>
               <li>boo19012003@gmail.com</li>
-              <li>Rau Đà Lạt được trồng trong nhà kính </li>
+              <li>Rau sạch tươi ngon, trọn vị thiên nhiên. </li>
             </ul>
           </div>
           <div className="col-6 header_top_right">
@@ -85,14 +102,13 @@ const Header = () => {
         </div>
       </div >
     </div>
-    <div className='container'>
+    <div className='container '>
       <div className='row'>
         <div className='col-xl-3'>
           <nav className='header_menu'>
             <ul>
-              {
-                menus?.map((menu, menuKey) => (
-                  <li key={menuKey} className={menuKey === 0 ? "active" : ""}>
+              {menus?.map((menu, menuKey) => (
+                  <li key={menuKey} onClick={() => handleMouseEnter(menu)} className={menuKey === 0 ? "active" : ""}>
                     <Link to={menu?.path}>{menu?.name}</Link>
                     {
                       menu.Child && (
@@ -118,10 +134,10 @@ const Header = () => {
         <div className='col-xl-3'>
           <div className='header_card'>
             <div className="header_card_search">
+              <li className='fa-search-icon'><FaSearch /></li>
               <input type="text" placeholder="Tìm kiếm" />
             </div>
             <ul>
-              <li><FaSearch /></li>
               <li><FaShoppingCart /> <span>5</span> </li> 
               <li><IoMenu /></li>
             </ul>
@@ -129,8 +145,13 @@ const Header = () => {
         </div>
       </div>
     </div>
+    <div className='banner-container'>
+      <img src={currentBanner} alt="" className='banner' />
+      <img src={overlayImage} alt="" className='overlay' />
+    </div>
     </>
   );
 }
 
 export default memo(Header);
+

@@ -81,6 +81,28 @@
     display: flex;
     align-items: center;
 }
+
+.banner-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .banner {
+    max-width: 1170px;
+    margin: auto;
+    margin: auto;
+    border-radius: 20px;
+  }
+  
+  .overlay {
+    position: absolute;
+    max-height: 100px;
+    top: 0;
+  }
+
 .header_menu {
     ul {
         display: flex;
@@ -102,6 +124,10 @@
                 padding: 5px 0;
                 display: block;
             }
+
+            :hover {
+                color: map.get($theme-color, "main");
+            }
         }
 
         li:hover .header_menu_dropdown {
@@ -113,7 +139,8 @@
         }
 
         .header_menu_dropdown {
-            background: #222222;
+            background: rgb(26, 26, 26);
+            border-radius: 10px;
             display: block;
             position: absolute;
             width: 180px;
@@ -144,10 +171,12 @@
     }
 }
 
-.header_logo {
-    width:  150px;
-    height: auto;
-    padding-left: 18%;
+.header_logo {  
+    img {
+        width:  150px;
+        height: auto;
+        padding-left: 18%;
+    }
 }
 
 .header_card {
@@ -155,22 +184,31 @@
     justify-content: flex-end;
     align-items: center;
     padding: 24px 0;
+    list-style: none;
 
     .header_card_search {
         margin-right: 20px;
-    }
+        position: relative;
 
-    input {
-        width: 100%;
-        font-size: 16px;
-        padding-left: 20px;
-        color: map.get($theme-color, "normal-text");
-        height: 35px;
-        border: none;
-        border-radius: 50px;
-        background: #e8eef0;
-        ::placeholder {
+        .fa-search-icon {
+            position: absolute;
+            left: 95%;
+            top: 10px;
+        }
+
+        input {
+            width: 100%;
+            font-size: 16px;
+            padding-left: 20px;
             color: map.get($theme-color, "normal-text");
+            height: 35px;
+            border: none;
+            border-radius: 50px;
+            background: map.get($theme-color, "box");
+            
+            ::placeholder {
+                color: map.get($theme-color, "normal-text");
+            }
         }
     }
 

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import './style.scss';
-import LOGO from "assest/Logo.svg"
+import LOGO from "assest/Logo_web.png"
 import { Link } from 'react-router-dom';
 import { AiOutlineFacebook } from "react-icons/ai";
 import { AiOutlineInstagram } from "react-icons/ai";
