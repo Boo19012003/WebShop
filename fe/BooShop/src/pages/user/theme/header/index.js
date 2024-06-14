@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import { IoIosMail } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-import { IoMenu } from "react-icons/io5";
 import LOGO from "assest/Logo_web.png"
 import { ROUTERS } from 'utils/router';
 import React, { useState } from 'react';
@@ -106,6 +105,11 @@ const Header = () => {
       <div className='row'>
         <div className='col-xl-3'>
           <nav className='header_menu'>
+            <div className="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul>
               {menus?.map((menu, menuKey) => (
                   <li key={menuKey} onClick={() => handleMouseEnter(menu)} className={menuKey === 0 ? "active" : ""}>
@@ -138,14 +142,13 @@ const Header = () => {
               <input type="text" placeholder="Tìm kiếm" />
             </div>
             <ul>
-              <li><FaShoppingCart /> <span>5</span> </li> 
-              <li><IoMenu /></li>
+              <li><FaShoppingCart /> <span>5</span> </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <div className='banner-container'>
+    <div className='banner-container col-xs-12'>
       <img src={currentBanner} alt="" className='banner' />
       <img src={overlayImage} alt="" className='overlay' />
     </div>

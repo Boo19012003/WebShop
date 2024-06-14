@@ -1,8 +1,12 @@
 import { memo } from 'react';
+import './style.scss';
+
 
 const ProfilePage = () => {
   return (
-    <h1>Giới thiệu</h1>
+    <>
+      
+    </>
   );
 }
 
